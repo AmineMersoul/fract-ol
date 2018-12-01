@@ -1,23 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractals.h                                         :+:      :+:    :+:   */
+/*   ft_create_rgb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/01 12:46:13 by amersoul         ###   ########.fr       */
+/*   Created: 2018/12/01 12:30:49 by amersoul          #+#    #+#             */
+/*   Updated: 2018/12/01 12:30:56 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FRACTALS_H
-# define __FRACTALS_H
-
-# include "../minilibx/mlx.h"
-# include "../libft/libft.h"
-# include <math.h>
-
-int		ft_deal_key(int key, void *param);
-int	    ft_create_rgb(int r, int g, int b);
-
-#endif
+int	ft_create_rgb(int r, int g, int b)
+{
+	return ((r & 0xff) << 16) +
+	((g & 0xff) << 8) + (b & 0xff);
+}
