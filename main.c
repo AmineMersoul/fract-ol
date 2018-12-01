@@ -6,12 +6,11 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/01 12:13:07 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/01 12:42:51 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibx/mlx.h"
-#include "libft/libft.h"
+#include "fractals/fractals.h"
 
 void	create_window(void)
 {
