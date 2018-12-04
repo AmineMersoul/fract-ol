@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/01 17:26:36 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/04 14:55:54 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	create_window(void)
 	t_draw_params *params = malloc(sizeof(t_draw_params));
 	params->mlx_ptr = mlx_ptr;
 	params->win_ptr = win_ptr;
-	params->line.p1.x = -2;
-	params->line.p1.y = 2;
-	params->line.p2.x = -2;
-	params->line.p2.y = 2;
+	params->view_port.h.p1 = -2;
+	params->view_port.h.p2 = 2;
+	params->view_port.v.p1 = -2;
+	params->view_port.v.p2 = 2;
 	params->scale = 1;
 	params->move = 1;
 	mlx_key_hook(win_ptr, ft_deal_key, params);

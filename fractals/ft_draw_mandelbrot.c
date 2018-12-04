@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/01 17:38:05 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/04 15:37:13 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_draw_mandelbrot(void *param)
 	int x = 0;
 	int y = 0;
 
-	int maxiterations = 100;
+	int maxiterations = 50;
 
 	while (x < width)
 	{
@@ -32,8 +32,8 @@ void	ft_draw_mandelbrot(void *param)
 		{
 			if (y > 360)
 				break;
-			double a = ft_map(x, 0, height, params->line.p1.x, params->line.p1.y);
-			double b = ft_map(y, 0, width, params->line.p2.x, params->line.p2.y);
+			double a = ft_map(x, 0, height, params->view_port.h.p1, params->view_port.h.p2);
+			double b = ft_map(y, 0, width, params->view_port.v.p1, params->view_port.v.p2);
 
 			double ca = a;
 			double cb = b;
@@ -47,7 +47,7 @@ void	ft_draw_mandelbrot(void *param)
 				a = aa + ca;
 				b = bb + cb;
 
-				if (fabs(a + b) > 16)
+				if (fabs(a + b) > 2)
 					break;
 				n++;
 			}

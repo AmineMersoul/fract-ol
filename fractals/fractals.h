@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/01 17:26:52 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/04 14:53:18 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 
 typedef struct
 {
-	float		x;
-	float		y;
+	float		p1;
+	float		p2;
 }				t_point;
 
 typedef struct
 {
-	t_point		p1;
-	t_point		p2;
-}				t_line;
+	t_point		h;
+	t_point		v;
+}				t_view;
 
 typedef struct
 {
@@ -39,7 +39,7 @@ typedef struct
 	float		move;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	t_line	line;
+	t_view	view_port;
 }				t_draw_params;
 
 int		ft_deal_key(int key, void *param);
