@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/04 16:15:42 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/04 18:09:39 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct
 	// int			view;
 	// int			help;
 	int gradient;
+	int precision;
 	float		scale;
 	float		move;
 	void		*mlx_ptr;
