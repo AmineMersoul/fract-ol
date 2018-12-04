@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/04 18:09:39 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/04 19:28:33 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct
 	// int			colorize;
 	// int			view;
 	// int			help;
+	int density;
 	int gradient;
 	int precision;
 	float		scale;
