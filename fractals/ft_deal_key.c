@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:30:07 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 16:21:38 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 17:52:07 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,63 +22,51 @@ int		ft_deal_key(int key, void *param)
 	{
 		params->view_port.h.p1 += params->move;
 		params->view_port.h.p2 += params->move;
-		ft_redraw(param);
 	}
 	if(key == 124)
 	{
 		params->view_port.h.p1 -= params->move;
 		params->view_port.h.p2 -= params->move;
-		ft_redraw(param);
 	}
 	if(key == 125)
 	{
 		params->view_port.v.p1 -= params->move;
 		params->view_port.v.p2 -= params->move;
-		ft_redraw(param);
 	}
 	if(key == 126)
 	{
 		params->view_port.v.p1 += params->move;
 		params->view_port.v.p2 += params->move;
-		ft_redraw(param);
 	}
 	if(key == 69)
-	{
 		params->precision += 10;
-		ft_redraw(param);
-	}
+
 	if(key == 78)
-	{
 		params->precision -= 10;
-		ft_redraw(param);
-	}
+
 	if(key == 5)
-	{
 		params->gradient = !params->gradient;
-		ft_redraw(param);
-	}
+
 	if(key == 2)
 	{
 		if (params->density == 1)
 			params->density = 4;
 		else
 			params->density = 1;
-		ft_redraw(param);
 	}
 	if(key == 1)
-	{
 		params->stop = !params->stop;
-	}
+
 	if(key == 0)
-	{
 		params->set = !params->set;
-		ft_redraw(param);
-	}
+
 	if(key == 122)
-	{
 		params->help = !params->help;
-		ft_redraw(param);
-	}
+
+	if(key == 8)
+		params->colorize = !params->colorize;
+
+	ft_redraw(param);
 	// ft_putnbr(key);
 	// ft_putstr(", ");
 	return (0);

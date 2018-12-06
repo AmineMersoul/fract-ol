@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 16:18:38 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 17:47:31 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,23 @@ typedef struct
 
 typedef struct
 {
-	// int			colorize;
-	// int			view;
+	int	r;
+	int	g;
+	int	b;
+}				t_rgb;
+
+
+typedef struct
+{
+	double	h;
+	double	s;
+	double	v;
+}				t_hsv;
+
+
+typedef struct
+{
+	int			colorize;
 	int			help;
 	int density;
 	int gradient;
@@ -51,11 +66,14 @@ typedef struct
 
 int		ft_deal_key(int key, void *param);
 int		ft_deal_mouse(int button, int x, int y, void *param);
-int	    ft_create_rgb(int r, int g, int b);
+t_rgb	ft_create_rgb(int r, int g, int b);
+int		ft_rgb_hex(t_rgb rgb);
 double  ft_map(double x, double in_min, double in_max, double out_min, double out_max);
 void	ft_draw_mandelbrot(void *param);
 int		ft_deal_motion(int x, int y, void *param);
 void	ft_redraw(void *param);
 void	ft_draw_help(void *param);
+t_hsv	ft_create_hsv(double h, double s, double v);
+int		ft_hsv_hex(t_hsv hsv);
 
 #endif
