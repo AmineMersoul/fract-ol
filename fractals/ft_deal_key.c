@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:30:07 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 15:49:05 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 16:21:38 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,58 +20,50 @@ int		ft_deal_key(int key, void *param)
 		exit(0);
 	if(key == 123)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->view_port.h.p1 += params->move;
 		params->view_port.h.p2 += params->move;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 124)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->view_port.h.p1 -= params->move;
 		params->view_port.h.p2 -= params->move;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 125)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->view_port.v.p1 -= params->move;
 		params->view_port.v.p2 -= params->move;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 126)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->view_port.v.p1 += params->move;
 		params->view_port.v.p2 += params->move;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 69)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->precision += 10;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 78)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->precision -= 10;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 5)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->gradient = !params->gradient;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 2)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		if (params->density == 1)
 			params->density = 4;
 		else
 			params->density = 1;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
 	}
 	if(key == 1)
 	{
@@ -79,9 +71,13 @@ int		ft_deal_key(int key, void *param)
 	}
 	if(key == 0)
 	{
-		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		params->set = !params->set;
-		ft_draw_mandelbrot(params);
+		ft_redraw(param);
+	}
+	if(key == 122)
+	{
+		params->help = !params->help;
+		ft_redraw(param);
 	}
 	// ft_putnbr(key);
 	// ft_putstr(", ");

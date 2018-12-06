@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_motion.c                                   :+:      :+:    :+:   */
+/*   ft_redraw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 14:58:48 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 16:19:13 by amersoul         ###   ########.fr       */
+/*   Created: 2018/11/12 15:04:43 by amersoul          #+#    #+#             */
+/*   Updated: 2018/12/06 16:29:03 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-int ft_deal_motion(int x, int y, void *param)
+void	ft_redraw(void *param)
 {
 	t_draw_params *params;
 
 	params = (t_draw_params*)param;
-	if (params->stop)
-	{
-        if (x >= 0 && x <= 800 && y >= 0 && y <= 800)
-        {
-            params->m_x = x;
-            params->m_y = y;
-            ft_redraw(param);
-        }
-	}
-	return (0);
+	mlx_clear_window(params->mlx_ptr, params->win_ptr);
+	ft_draw_mandelbrot(param);
+	ft_draw_help(param);
 }

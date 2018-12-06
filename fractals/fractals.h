@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 15:48:56 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 16:18:38 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct
 {
 	// int			colorize;
 	// int			view;
-	// int			help;
+	int			help;
 	int density;
 	int gradient;
 	int precision;
@@ -55,5 +55,7 @@ int	    ft_create_rgb(int r, int g, int b);
 double  ft_map(double x, double in_min, double in_max, double out_min, double out_max);
 void	ft_draw_mandelbrot(void *param);
 int		ft_deal_motion(int x, int y, void *param);
+void	ft_redraw(void *param);
+void	ft_draw_help(void *param);
 
 #endif
