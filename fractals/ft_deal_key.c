@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:30:07 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/04 19:35:21 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 15:49:05 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,16 @@ int		ft_deal_key(int key, void *param)
 			params->density = 4;
 		else
 			params->density = 1;
+		ft_draw_mandelbrot(params);
+	}
+	if(key == 1)
+	{
+		params->stop = !params->stop;
+	}
+	if(key == 0)
+	{
+		mlx_clear_window(params->mlx_ptr, params->win_ptr);
+		params->set = !params->set;
 		ft_draw_mandelbrot(params);
 	}
 	// ft_putnbr(key);

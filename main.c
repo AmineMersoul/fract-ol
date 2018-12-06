@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/04 19:28:52 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 15:52:53 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@ void	create_window(void)
 	params->gradient = 1;
 	params->precision = 50;
 	params->density = 1;
+	params->stop = 1;
+	params->set = 1;
 	mlx_key_hook(win_ptr, ft_deal_key, params);
 	mlx_mouse_hook(win_ptr, ft_deal_mouse, params);
 	ft_draw_mandelbrot(params);
+	mlx_hook(win_ptr, 6, 1L<<8, ft_deal_motion, params);
 	mlx_loop(mlx_ptr);
 }
 

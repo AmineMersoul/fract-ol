@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/04 19:28:33 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/06 15:48:56 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_view	view_port;
+	int set;
+	int stop;
+	int m_x;
+	int m_y;
 }				t_draw_params;
 
 int		ft_deal_key(int key, void *param);
@@ -50,5 +54,6 @@ int		ft_deal_mouse(int button, int x, int y, void *param);
 int	    ft_create_rgb(int r, int g, int b);
 double  ft_map(double x, double in_min, double in_max, double out_min, double out_max);
 void	ft_draw_mandelbrot(void *param);
+int		ft_deal_motion(int x, int y, void *param);
 
 #endif
