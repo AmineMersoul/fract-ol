@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/07 15:25:08 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 18:26:12 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 void	ft_draw_mandelbrot(void *param)
 {
 	t_draw_params *params = (t_draw_params*)param;
-    int height = 800 * params->scale;
-	int width = 800 * params->scale;
+    int height = WIN_HEIGHT * params->scale;
+	int width = WIN_WIDTH * params->scale;
 
 	int x = 0;
 	int y = 0;
 
-	double ca = ft_map(params->m_x, 0, 800, -1, 1);
-	double cb = ft_map(params->m_y, 0, 800, -1, 1);
+	double ca = ft_map(params->m_x, 0, WIN_WIDTH, -1, 1);
+	double cb = ft_map(params->m_y, 0, WIN_HEIGHT, -1, 1);
 
-	while (x < width)
+	while (x < WIN_WIDTH)
 	{
-		if (x > 800)
-			break;
 		y = 0;
-		while (y < height)
+		while (y < WIN_HEIGHT)
 		{
-			if (y > 800)
-				break;
 			double a = ft_map(x, 0, height, params->view_port.h.p1, params->view_port.h.p2);
 			double b = ft_map(y, 0, width, params->view_port.v.p1, params->view_port.v.p2);
 
@@ -73,14 +69,15 @@ void	ft_draw_mandelbrot(void *param)
 			else
 				hsv = ft_create_hsv(0, 0, color);
 			if (params->density == 1)
-				mlx_pixel_put(params->mlx_ptr, params->win_ptr, x, y, ft_hsv_hex(hsv));
+				params->mlx.img.data[y * WIN_WIDTH + x] = ft_hsv_hex(hsv);
 			else
 			{
-				mlx_pixel_put(params->mlx_ptr, params->win_ptr, x, y, ft_hsv_hex(hsv));
-				mlx_pixel_put(params->mlx_ptr, params->win_ptr, x+2, y+2, ft_hsv_hex(hsv));
+				params->mlx.img.data[y * WIN_WIDTH + x] = ft_hsv_hex(hsv);
+				params->mlx.img.data[(y + 2) * WIN_WIDTH + (x + 2)] = ft_hsv_hex(hsv);
 			}
 			y += params->density;
 		}
 		x += params->density;
 	}
+	mlx_put_image_to_window(params->mlx.mlx_ptr, params->mlx.win_ptr, params->mlx.img.img_ptr, 0, 0);
 }

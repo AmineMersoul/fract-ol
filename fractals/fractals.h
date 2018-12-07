@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/07 15:25:22 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 18:10:52 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "../libft/libft.h"
 # include <math.h>
 # include <stdio.h>
+
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 800
 
 typedef struct
 {
@@ -45,6 +48,21 @@ typedef struct
 	double	v;
 }				t_hsv;
 
+typedef struct	s_img
+{
+	void		*img_ptr;
+	int			*data;
+	int			size_l;
+	int			bpp;
+	int			endian;
+}				t_img;
+
+typedef struct	s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+}				t_mlx;
 
 typedef struct
 {
@@ -56,8 +74,7 @@ typedef struct
 	int		precision;
 	float	scale;
 	float	move;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	t_mlx	mlx;
 	t_view	view_port;
 	int		set;
 	int		stop;

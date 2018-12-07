@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:04:43 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 16:29:03 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 18:20:55 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	ft_redraw(void *param)
 	t_draw_params *params;
 
 	params = (t_draw_params*)param;
-	mlx_clear_window(params->mlx_ptr, params->win_ptr);
+	mlx_destroy_image(params->mlx.mlx_ptr, params->mlx.img.img_ptr);
+	params->mlx.img.img_ptr = mlx_new_image(params->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
+	params->mlx.img.data = (int *)mlx_get_data_addr(params->mlx.img.img_ptr, &params->mlx.img.bpp, &params->mlx.img.size_l, &params->mlx.img.endian);
+	mlx_clear_window(params->mlx.mlx_ptr, params->mlx.win_ptr);
 	ft_draw_mandelbrot(param);
 	ft_draw_help(param);
 }
