@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:30:07 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 17:52:07 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 15:44:40 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,16 @@ int		ft_deal_key(int key, void *param)
 
 	if(key == 8)
 		params->colorize = !params->colorize;
+
+	if (key == 116)
+	{
+		params->color_shift += 0.3;
+	}
+
+	if (key == 121)
+	{
+		params->color_shift -= 0.3;
+	}
 
 	ft_redraw(param);
 	// ft_putnbr(key);

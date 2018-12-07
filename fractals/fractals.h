@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 17:47:31 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 15:25:22 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,21 @@ typedef struct
 
 typedef struct
 {
-	int			colorize;
-	int			help;
-	int density;
-	int gradient;
-	int precision;
-	float		scale;
-	float		move;
-	void		*mlx_ptr;
-	void		*win_ptr;
+	int		colorize;
+	double	color_shift;
+	int		help;
+	int		density;
+	int		gradient;
+	int		precision;
+	float	scale;
+	float	move;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	t_view	view_port;
-	int set;
-	int stop;
-	int m_x;
-	int m_y;
+	int		set;
+	int		stop;
+	int		m_x;
+	int		m_y;
 }				t_draw_params;
 
 int		ft_deal_key(int key, void *param);

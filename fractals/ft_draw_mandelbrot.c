@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 17:49:04 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 15:25:08 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_draw_mandelbrot(void *param)
 			}
 			else
 			{
-				color = fabs(ft_map(n, 0, params->precision, 0, 360));
+				color = fabs(ft_map(n * params->color_shift, 0, params->precision, 0, 360));
 			}
 			t_hsv hsv;
 			if (params->colorize)

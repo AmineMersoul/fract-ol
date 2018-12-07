@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/07 14:53:33 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 15:32:08 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	create_window(int set)
 	params->colorize = 0;
 	params->m_x = 400;
 	params->m_y = 600;
+	params->color_shift = 1;
 	mlx_key_hook(win_ptr, ft_deal_key, params);
 	mlx_mouse_hook(win_ptr, ft_deal_mouse, params);
 	ft_redraw(params);
