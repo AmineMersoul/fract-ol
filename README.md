@@ -15,7 +15,10 @@ make re
 then run the programme using
 
 ```
-usage : ./fractol
+usage : ./fractol [fractals]
+fractals :
+--> Mandelbrot
+--> Julia
 ```
 
 ## Authors

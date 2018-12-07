@@ -6,13 +6,13 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 17:50:52 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 14:53:33 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals/fractals.h"
 
-void	create_window(void)
+void	create_window(int set)
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -32,14 +32,24 @@ void	create_window(void)
 	params->precision = 50;
 	params->density = 1;
 	params->stop = 1;
-	params->set = 1;
+	params->set = set;
 	params->help = 0;
 	params->colorize = 0;
+	params->m_x = 400;
+	params->m_y = 600;
 	mlx_key_hook(win_ptr, ft_deal_key, params);
 	mlx_mouse_hook(win_ptr, ft_deal_mouse, params);
 	ft_redraw(params);
 	mlx_hook(win_ptr, 6, 1L<<8, ft_deal_motion, params);
 	mlx_loop(mlx_ptr);
+}
+
+void	show_usage()
+{
+	ft_putstr("usage : ./fractol [fractals]\n");
+	ft_putstr("fractals :\n");
+	ft_putstr("--> Mandelbrot\n");
+	ft_putstr("--> Julia\n");
 }
 
 int		main(int argc, char **argv)
@@ -49,11 +59,16 @@ int		main(int argc, char **argv)
 	int			x;
 	int			y;
 
-	if (argc == 1)
+	if (argc == 2)
 	{
-		create_window();
+		if (ft_strequ(argv[1], "Mandelbrot"))
+			create_window(1);
+		else if (ft_strequ(argv[1], "Julia"))
+			create_window(0);
+		else
+			show_usage();
 	}
 	else
-		ft_putstr("usage : ./fractol\n");
+		show_usage();
 	return (0);
 }

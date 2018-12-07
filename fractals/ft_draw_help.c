@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:08:34 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/06 18:04:01 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/07 14:48:59 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_draw_help(void *param)
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
 	20, 10, ft_rgb_hex(rgb), "presse 'd' to change density");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
-	20, 30, ft_rgb_hex(rgb), "presse 'a' to change set");
+	20, 30, ft_rgb_hex(rgb), "presse 'a' to change the set");
     mlx_string_put(params->mlx_ptr, params->win_ptr,
 	20, 50, ft_rgb_hex(rgb), "presse 's' to stop shape change");
 	 mlx_string_put(params->mlx_ptr, params->win_ptr,
