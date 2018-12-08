@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/07 18:22:30 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:04:22 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	show_usage()
 	ft_putstr("fractals :\n");
 	ft_putstr("--> Mandelbrot\n");
 	ft_putstr("--> Julia\n");
+	ft_putstr("--> Tricorn\n");
+	ft_putstr("--> BurningShip\n");
 }
 
 int		main(int argc, char **argv)
@@ -66,6 +68,10 @@ int		main(int argc, char **argv)
 			create_window(1);
 		else if (ft_strequ(argv[1], "Julia"))
 			create_window(0);
+		else if (ft_strequ(argv[1], "Tricorn"))
+			create_window(2);
+		else if (ft_strequ(argv[1], "BurningShip"))
+			create_window(3);
 		else
 			show_usage();
 	}
