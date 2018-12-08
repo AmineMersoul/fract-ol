@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/07 18:26:12 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/08 14:45:32 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_draw_mandelbrot(void *param)
 			int n = 0;
 			while (n < params->precision)
 			{
-				if (fabs(a + b) > 16)
+				if (fabs(a*a + b*b) > 16)
 					break;
 
 				double aa = a * a - b * b;
