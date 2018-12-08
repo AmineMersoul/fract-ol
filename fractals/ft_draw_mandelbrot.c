@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/08 14:45:32 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/08 17:39:50 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,17 @@ void	ft_draw_mandelbrot(void *param)
 					break;
 
 				double aa = a * a - b * b;
-				double bb = 2 * a * b;
+				double bb;
+				if (params->set == 2)
+					bb = -2 * a * b;
+				else
+					bb = 2 * a * b;
 
 				a = aa + ca;
-				b = bb + cb;
+				if (params->set == 3)
+					b = fabs(bb) + cb;
+				else
+					b = bb + cb;
 
 				n++;
 			}

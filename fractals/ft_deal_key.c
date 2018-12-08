@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:30:07 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/08 15:39:20 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/08 17:40:11 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ int		ft_deal_key(int key, void *param)
 		params->stop = !params->stop;
 
 	if(key == 0)
-		params->set = !params->set;
+	{
+		params->set++;
+		if (params->set > 3)
+		params->set = 0;
+	}
 
 	if(key == 122)
 		params->help = !params->help;
