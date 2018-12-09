@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/07 18:10:52 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/09 17:19:01 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,11 @@ typedef struct	s_img
 
 typedef struct	s_mlx
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	t_img		img;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	t_img			img;
+	int				init;
+	struct s_mlx	*next;
 }				t_mlx;
 
 typedef struct
