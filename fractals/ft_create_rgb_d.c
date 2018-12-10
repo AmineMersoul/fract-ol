@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_motion.c                                   :+:      :+:    :+:   */
+/*   ft_create_rgb_d.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 14:58:48 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/10 14:19:23 by amersoul         ###   ########.fr       */
+/*   Created: 2018/12/01 12:30:49 by amersoul          #+#    #+#             */
+/*   Updated: 2018/12/10 14:55:13 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-int	ft_deal_motion(int x, int y, void *param)
+t_rgb_d	ft_create_rgb_d(double r, double g, double b)
 {
-	t_draw_params *params;
+	t_rgb_d rgb;
 
-	params = (t_draw_params*)param;
-	if (params->stop)
-	{
-		if (x >= 0 && x <= 800 && y >= 0 && y <= 800)
-		{
-			params->m_x = x;
-			params->m_y = y;
-			ft_redraw(param);
-		}
-	}
-	return (0);
+	rgb.r = r;
+	rgb.g = g;
+	rgb.b = b;
+	return (rgb);
 }

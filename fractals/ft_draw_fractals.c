@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_mandelbrot.c                               :+:      :+:    :+:   */
+/*   ft_draw_fractals.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/08 17:39:50 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/10 15:05:33 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-void	ft_draw_mandelbrot(void *param)
+void	*draw_f(void *param)
 {
-	t_draw_params *params = (t_draw_params*)param;
-    int height = WIN_HEIGHT * params->scale;
-	int width = WIN_WIDTH * params->scale;
+	t_draw_params	*params;
+    int				height;
+	int				width;
+	int				x;
+	int				y;
+	double			ca;
+	double			cb;
 
-	int x = 0;
-	int y = 0;
-
-	double ca = ft_map(params->m_x, 0, WIN_WIDTH, -1, 1);
-	double cb = ft_map(params->m_y, 0, WIN_HEIGHT, -1, 1);
-
+	params = (t_draw_params*)param;
+	height = WIN_HEIGHT * params->scale;
+	width = WIN_WIDTH * params->scale;
+	x = 0;
+	y = 0;
+	ca = ft_map(params->m_x, ft_create_minmax(0, WIN_WIDTH), ft_create_minmax(-1, 1));
+	cb = ft_map(params->m_y, ft_create_minmax(0, WIN_HEIGHT), ft_create_minmax(-1, 1));
 	while (x < WIN_WIDTH)
 	{
 		y = 0;
 		while (y < WIN_HEIGHT)
 		{
-			double a = ft_map(x, 0, height, params->view_port.h.p1, params->view_port.h.p2);
-			double b = ft_map(y, 0, width, params->view_port.v.p1, params->view_port.v.p2);
-
+			double a = ft_map(x, ft_create_minmax(0, height),ft_create_minmax(params->view_port.h.p1, params->view_port.h.p2));
+			double b = ft_map(y, ft_create_minmax(0, width),ft_create_minmax(params->view_port.v.p1, params->view_port.v.p2));
 			if (params->set)
 			{
 				ca = a;
 				cb = b;
 			}
-
 			int n = 0;
 			while (n < params->precision)
 			{
@@ -59,7 +62,6 @@ void	ft_draw_mandelbrot(void *param)
 
 				n++;
 			}
-
 			int color = 60;
 			if (params->gradient == 0)
 			{
@@ -68,7 +70,7 @@ void	ft_draw_mandelbrot(void *param)
 			}
 			else
 			{
-				color = fabs(ft_map(n * params->color_shift, 0, params->precision, 0, 360));
+				color = fabs(ft_map(n * params->color_shift, ft_create_minmax(0, params->precision), ft_create_minmax(0, 360)));
 			}
 			t_hsv hsv;
 			if (params->colorize)
@@ -87,4 +89,13 @@ void	ft_draw_mandelbrot(void *param)
 		x += params->density;
 	}
 	mlx_put_image_to_window(params->mlx.mlx_ptr, params->mlx.win_ptr, params->mlx.img.img_ptr, 0, 0);
+	pthread_exit(0);
+}
+
+void	ft_draw_fractals(void *param)
+{
+	pthread_t tids;
+
+	pthread_create(&tids, NULL, draw_f, param);
+	pthread_join(tids, NULL);
 }
