@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:20:25 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/10 20:06:26 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/11 18:58:50 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ typedef struct	s_draw_params
 	int		help;
 	int		density;
 	int		gradient;
-	int		precision;
+	int		details;
 	double	scale;
 	double	move;
 	t_mlx	mlx;

@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:32:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/10 20:08:02 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/11 18:59:02 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_screen screen, t_screen itr, t_point cons)
 	if (params->set)
 		cons = ft_create_point(f.p1, f.p2);
 	n = 0;
-	while (n < params->precision)
+	while (n < params->details)
 	{
 		if (fabs(f.p1 * f.p1 + f.p2 * f.p2) > 16)
 			break ;
@@ -50,13 +50,13 @@ static int		get_color(t_draw_params *params, int n)
 	color = 60;
 	if (params->gradient == 0)
 	{
-		if (n == params->precision)
+		if (n == params->details)
 			color = 255;
 	}
 	else
 	{
 		color = fabs(ft_map(n * params->color_shift,
-		ft_create_minmax(0, params->precision), ft_create_minmax(0, 360)));
+		ft_create_minmax(0, params->details), ft_create_minmax(0, 360)));
 	}
 	if (params->colorize)
 		hsv = ft_create_hsv(color, 80, 80);

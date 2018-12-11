@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 10:59:41 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/10 13:55:03 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/11 18:59:15 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_draw_params	*set_params(t_mlx *mlx, int set)
 	params->scale = 1;
 	params->move = 1;
 	params->gradient = 1;
-	params->precision = 50;
+	params->details = 50;
 	params->density = 1;
 	params->stop = 1;
 	params->set = set;

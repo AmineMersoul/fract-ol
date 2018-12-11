@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 12:30:07 by amersoul          #+#    #+#             */
-/*   Updated: 2018/12/10 14:18:27 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/12/11 18:59:24 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ static void	p1(int key, t_draw_params *params)
 static void	p2(int key, t_draw_params *params)
 {
 	if (key == 69)
-		params->precision += 10;
+		params->details += 10;
 	if (key == 78)
-		params->precision -= 10;
+		params->details -= 10;
 	if (key == 5)
 		params->gradient = !params->gradient;
 	if (key == 2)
